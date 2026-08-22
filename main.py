@@ -4,13 +4,6 @@ from google import genai
 from google.genai import types
 from datetime import datetime
 
-import os
-from dotenv import load_dotenv
-
-load_dotenv()
-
-
-
 if "chats" not in st.session_state:
     st.session_state.chats = {"Chat 1" : []}
     st.session_state.current_chat = "Chat 1"
@@ -25,9 +18,10 @@ if "prompting" not in st.session_state:
     st.session_state.prompting = False
 
 ## GEMINI DETAIL
-client = genai.Client(api_key=os.getenv("API_KEY"))
+key = st.secrets["API_KEY"]
+client = genai.Client(api_key=key)
 
-model = os.getenv("MODEL")
+model = "gemini-3.5-flash-lite"
 
 st.set_page_config(
     page_title="Nyaya AI",
@@ -86,7 +80,7 @@ with st.sidebar:
 
 with st.bottom:
     # option = st.selectbox("TASK: ", ["Document","Legal", "Civic"])
-    option = st.segmented_control("TASK: ", ["Document","Legal", "Civic"], width="stretch", label_visibility="collapsed")
+    option = st.segmented_control("TASK: ", ["Document","Legal", "Civic"], width="stretch", label_visibility="collapsed", default="Document")
 
     if option:
         st.session_state.task = option.lower()
