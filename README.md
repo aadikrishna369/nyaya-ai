@@ -1,4 +1,5 @@
-# nyaya-ai
+<img width="2048" height="768" alt="ChatGPT Image Aug 23, 2026, 01_31_44 PM" src="https://github.com/user-attachments/assets/cf10631a-a6f8-4473-addd-2a826940b672" />
+
 # Nyaya AI
 
 ### Know. Act. Empower.
